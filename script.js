@@ -629,7 +629,7 @@
       socialEmail: '📧 ג\'ימייל',
       socialFacebook: '📘 פייסבוק',
       reikiTitle: 'על רייקי',
-      reikiText: 'אם אינך יודעת מה זה רייקי, ',
+      reikiText: 'אם אינך יודע/ת מה זה רייקי, ',
       reikiLink: 'לחצי עליי',
       footer: 'באהבה ובכבוד לדרך שלך ❤️',
       footerSign: 'דריה אמריטה',
