@@ -362,6 +362,42 @@ body {
   margin-top: 24px;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.reiki-banner {
+  margin-bottom: 25px;
+}
+
+.reiki-card {
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 24px 18px;
+  font-size: 16px;
+}
+
+.reiki-card__text {
+  line-height: 1.45;
+}
+
+.reiki-card__link {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .social-card {
   display: flex;
   align-items: center;
