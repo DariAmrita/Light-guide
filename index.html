@@ -1,87 +1,1693 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reiki calm and harmony</title>
-  <link rel="stylesheet" href="styles.css?v=11">
-</head>
-<body class="theme-light" data-lang="en">
-  <div class="controls">
-    <div class="theme-switcher" role="group">
-      <button class="theme-btn active" type="button" data-theme="light">
-        <span class="theme-icon">☀</span>
-        <span data-i18n="themeLight">Light</span>
-      </button>
-      <button class="theme-btn" type="button" data-theme="dark">
-        <span class="theme-icon">🌙</span>
-        <span data-i18n="themeDark">Dark</span>
-      </button>
-    </div>
+  <meta name="description" content="Daria Amrita Light guide, cosmoenergetics, Reiki practitioner Israel">
+  <title>Daria Amrita</title>
+  <script>
+    (function () {
+      if (!/github\.io$/i.test(location.hostname)) {
+        return;
+      }
+      var parts = location.pathname.split('/').filter(Boolean);
+      if (parts.length && /\.html?$/i.test(parts[parts.length - 1])) {
+        parts.pop();
+      }
+      if (parts.length) {
+        var base = document.createElement('base');
+        base.href = '/' + parts.join('/') + '/';
+        document.head.appendChild(base);
+      }
+    })();
+  </script>
+  <script>
+    (function () {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+      var lang = localStorage.getItem('lang') || 'en';
+      document.documentElement.lang = lang;
+      if (lang === 'ar' || lang === 'he') {
+        document.documentElement.dir = 'rtl';
+      }
+    })();
+  </script>
+  <style>
+/* =========================
+   CSS — Дарья Амрита
+   ========================= */
 
-    <div class="lang-switcher">
-      <button class="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
-        <span class="lang-icon" aria-hidden="true">🌐</span>
-        <span class="lang-current">English</span>
-        <svg class="icon-chevron" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-body: linear-gradient(180deg, #fff7fb, #e8f8ff, #fff7e6);
+  --overlay-1: rgba(255, 192, 203, 0.25);
+  --overlay-2: rgba(173, 216, 230, 0.25);
+  --text: #333;
+  --text-muted: #666;
+  --text-quote: #444;
+  --title: #ff5fa2;
+  --accent: #5a7cff;
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-shadow: rgba(0, 0, 0, 0.08);
+  --avatar-border: #fff;
+  --avatar-shadow: rgba(0, 0, 0, 0.15);
+  --btn-gradient: linear-gradient(90deg, #ff77aa, #7ecbff);
+  --btn-shadow: rgba(0, 0, 0, 0.15);
+  --theme-switch-bg: rgba(255, 255, 255, 0.9);
+  --theme-switch-border: rgba(0, 0, 0, 0.08);
+  --theme-switch-inactive: #555;
+  --theme-switch-active-bg: linear-gradient(90deg, #ff77aa, #7ecbff);
+  --theme-switch-active-text: #fff;
+}
+
+[data-theme="dark"] {
+  --bg-body: linear-gradient(180deg, #1a1525, #252038, #1e1a2e);
+  --overlay-1: rgba(255, 127, 180, 0.12);
+  --overlay-2: rgba(126, 203, 255, 0.12);
+  --text: #e8e4f0;
+  --text-muted: #a8a0b8;
+  --text-quote: #d4cee8;
+  --title: #ff8fc4;
+  --accent: #8ba8ff;
+  --card-bg: rgba(40, 34, 58, 0.85);
+  --card-shadow: rgba(0, 0, 0, 0.35);
+  --avatar-border: #3d3558;
+  --avatar-shadow: rgba(0, 0, 0, 0.4);
+  --btn-gradient: linear-gradient(90deg, #c95d8a, #5a9fd4);
+  --btn-shadow: rgba(0, 0, 0, 0.35);
+  --theme-switch-bg: rgba(40, 34, 58, 0.95);
+  --theme-switch-border: rgba(255, 255, 255, 0.1);
+  --theme-switch-inactive: #c8c0d8;
+  --theme-switch-active-bg: linear-gradient(90deg, #c95d8a, #5a9fd4);
+  --theme-switch-active-text: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-body);
+  color: var(--text);
+  line-height: 1.5;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+.toolbar {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  max-width: calc(100% - 32px);
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 12px;
+  border-radius: 50px;
+  background: var(--theme-switch-bg);
+  border: 1px solid var(--theme-switch-border);
+  box-shadow: 0 6px 20px var(--card-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.lang-switch__icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.lang-switch__select {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  max-width: 160px;
+  padding: 4px 0;
+}
+
+.lang-switch__select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .lang-switch__select {
+  color-scheme: light;
+}
+
+[data-theme="dark"] .lang-switch__select option {
+  color: #1a1a1a;
+  background-color: #fff;
+}
+
+.theme-switch {
+  display: flex;
+  gap: 0;
+  padding: 4px;
+  border-radius: 50px;
+  background: var(--theme-switch-bg);
+  border: 1px solid var(--theme-switch-border);
+  box-shadow: 0 6px 20px var(--card-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.theme-switch__btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--theme-switch-inactive);
+  background: transparent;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.theme-switch__btn.is-active {
+  background: var(--theme-switch-active-bg);
+  color: var(--theme-switch-active-text);
+}
+
+.theme-switch__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, var(--overlay-1), transparent 40%),
+    radial-gradient(circle at bottom right, var(--overlay-2), transparent 40%);
+  transition: background 0.35s ease;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  text-align: center;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid var(--avatar-border);
+  box-shadow: 0 10px 30px var(--avatar-shadow);
+  margin-bottom: 25px;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.page-title {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: var(--title);
+  transition: color 0.35s ease;
+}
+
+.tagline {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--accent);
+  font-weight: bold;
+  margin-bottom: 14px;
+  transition: color 0.35s ease;
+}
+
+.button--header {
+  margin-bottom: 32px;
+}
+
+.card__note {
+  margin-top: 8px;
+  line-height: 1.7;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.card__list--roles {
+  margin-bottom: 15px;
+}
+
+.site-footer__sign {
+  margin-top: 12px;
+  font-weight: bold;
+  color: var(--title);
+  transition: color 0.35s ease;
+}
+
+.intro {
+  margin-bottom: 40px;
+}
+
+.intro p {
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.intro p:last-child {
+  margin-bottom: 0;
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 25px var(--card-shadow);
+  text-align: start;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card__title {
+  margin-bottom: 20px;
+  color: var(--accent);
+  font-size: 28px;
+  font-weight: bold;
+  transition: color 0.35s ease;
+}
+
+.card p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card__list {
+  list-style: none;
+}
+
+.card__list li {
+  margin-bottom: 14px;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+.card__list li:last-child {
+  margin-bottom: 0;
+}
+
+.quote {
+  margin: 40px 0;
+  font-size: 26px;
+  line-height: 1.7;
+  color: var(--text-quote);
+  font-style: italic;
+  transition: color 0.35s ease;
+}
+
+.button {
+  display: inline-block;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  background: var(--btn-gradient);
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.35s ease;
+  box-shadow: 0 10px 25px var(--btn-shadow);
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.site-footer {
+  margin-top: 50px;
+  font-size: 20px;
+  color: var(--text-muted);
+  transition: color 0.35s ease;
+}
+
+.contact-card__lead {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.contact-card__phone {
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.contact-card a {
+  color: var(--accent);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.35s ease;
+}
+
+.contact-card a:hover,
+.contact-card a:focus-visible {
+  text-decoration: underline;
+}
+
+.contact-card .social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.reiki-banner {
+  margin-bottom: 25px;
+}
+
+.reiki-card {
+  flex-direction: column;
+  gap: 10px;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 24px 18px;
+  font-size: 16px;
+}
+
+.reiki-card__text {
+  line-height: 1.45;
+}
+
+.reiki-card__link {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  padding: 20px 14px;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: 0 10px 25px var(--card-shadow);
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1.3;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.35s ease, background 0.35s ease, color 0.35s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px var(--card-shadow);
+}
+
+.social-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+html[lang="zh"] body,
+html[lang="ja"] body,
+html[lang="ko"] body {
+  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", "Hiragino Sans", "Malgun Gothic", sans-serif;
+}
+
+html[lang="ar"] body,
+html[lang="he"] body {
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+    align-items: stretch;
+  }
+
+  .lang-switch {
+    justify-content: center;
+  }
+
+  .lang-switch__select {
+    flex: 1;
+    max-width: none;
+  }
+
+  .theme-switch {
+    justify-content: center;
+  }
+
+  .theme-switch__btn {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .content {
+    padding-top: 120px;
+  }
+
+  .page-title {
+    font-size: 36px;
+  }
+
+  .tagline {
+    font-size: 17px;
+  }
+
+  .card__note {
+    font-size: 16px;
+  }
+
+  .intro p {
+    font-size: 18px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .card__title {
+    font-size: 24px;
+  }
+
+  .card p,
+  .card__list li,
+  .contact-card__lead,
+  .contact-card__phone {
+    font-size: 16px;
+  }
+
+  .quote {
+    font-size: 22px;
+  }
+
+  .button {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .contact-card .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-card {
+    min-height: 72px;
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body,
+  .overlay,
+  .avatar,
+  .page-title,
+  .card,
+  .card__title,
+  .quote,
+  .button,
+  .site-footer,
+  .contact-card a,
+  .social-card,
+  .theme-switch__btn {
+    transition: none;
+  }
+
+  .social-card:hover {
+    transform: none;
+  }
+
+  .button {
+    transition: none;
+  }
+
+  .button:hover {
+    transform: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <label class="lang-switch">
+      <span class="lang-switch__icon" aria-hidden="true">🌐</span>
+      <select id="lang-select" class="lang-switch__select" aria-label="Site language">
+        <option value="en" selected>English</option>
+        <option value="ru">Русский</option>
+        <option value="uk">Українська</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="it">Italiano</option>
+        <option value="pt">Português</option>
+        <option value="pl">Polski</option>
+        <option value="tr">Türkçe</option>
+        <option value="ar">العربية</option>
+        <option value="he">עברית</option>
+        <option value="zh">中文</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+      </select>
+    </label>
+
+    <div class="theme-switch" role="group" aria-label="Display theme">
+      <button
+        type="button"
+        class="theme-switch__btn is-active"
+        data-theme-set="light"
+        aria-pressed="true"
+        data-i18n="themeLight"
+      >
+        ☀️ Light
       </button>
-      <ul class="lang-menu" role="listbox" hidden></ul>
+      <button
+        type="button"
+        class="theme-switch__btn"
+        data-theme-set="dark"
+        aria-pressed="false"
+        data-i18n="themeDark"
+      >
+        🌙 Dark
+      </button>
     </div>
   </div>
 
-  <main class="page">
-    <div class="hero-top">
-      <div class="symbol-wrap" aria-hidden="true">
-        <div class="symbol-ring outer"></div>
-        <div class="symbol-ring middle"></div>
-        <div class="symbol-core">☯</div>
-      </div>
+  <div class="hero">
+    <div class="overlay" aria-hidden="true"></div>
 
-      <h1 class="title" data-i18n="title">Reiki</h1>
-      <p class="subtitle" data-i18n="subtitle">Japanese practice • Calm • Harmony</p>
-    </div>
+    <main class="content">
 
-    <div class="content">
-      <div>
-        <h2 data-i18n="sec1">What is Reiki</h2>
-        <p data-i18n="p1">Reiki is a Japanese practice created by Mikao Usui in the early 20th century. The word "reiki" has two parts: "rei" understood as "universal" or "all-encompassing", and "ki" life energy or force that, according to tradition, exists in all living things.</p>
-      </div>
+      <header>
+        <img
+          class="avatar"
+          src="https://i.postimg.cc/G3xcrHGc/Whats-App-Image-2026-05-20-at-17-21-42.jpg"
+          alt="Photo Daria Amrita"
+          width="180"
+          height="180"
+          loading="eager"
+          data-i18n-alt="avatarAlt"
+        >
+        <h1 class="page-title" data-i18n="pageTitle">Daria Amrita</h1>
+        <p class="tagline" data-i18n="tagline">Light guide • Cosmoenergetics • Reiki practitioner</p>
+        <a class="button button--header" href="#contact" data-scroll-to="contact" data-i18n="contactBtn">
+          Book a consultation
+        </a>
+        <div class="intro">
+          <p data-i18n="intro1">Are you going through a period of consciousness transformation and looking for a guide on this path?</p>
+          <p data-i18n="intro2">Do you want to find harmony with yourself, release limiting beliefs, and take your life to a new level?</p>
+          <p data-i18n="intro3">Do you seek to restore inner balance, fill with energy, and feel more calm, confidence, and inspiration?</p>
+          <p data-i18n="intro4">Then I will be happy to accompany you on this path</p>
+        </div>
+      </header>
 
-      <div>
-        <h2 data-i18n="sec2">How the practice works</h2>
-        <p data-i18n="p2">Reiki is a practice based on calm, attention, and working with the hands. During a session, the practitioner usually places their hands on the body or holds them near it. It is believed that energy can be directed this way for relaxation, inner balance, and harmony.</p>
-      </div>
+      <section class="card" aria-labelledby="practices-title">
+        <h2 class="card__title" id="practices-title" data-i18n="practicesTitle">Practices and directions</h2>
+        <ul class="card__list">
+          <li data-i18n="practice1">Cosmoenergetics</li>
+          <li data-i18n="practice2">Reiki energy healing</li>
+          <li data-i18n="practice3">Work with Light energies</li>
+          <li data-i18n="practice4">Energetic diagnosis and cleansing</li>
+          <li data-i18n="practice5">Channeling</li>
+          <li data-i18n="practice6">I make natural candles from beeswax</li>
+        </ul>
+      </section>
 
-      <div>
-        <h2 data-i18n="sec3">What the practice offers</h2>
-        <p data-i18n="p3">Many people see Reiki as a way to feel better, calm their thoughts, release tension, and take time for themselves. For some it is a spiritual practice that helps them listen more closely to their sensations, emotions, and inner state.</p>
-      </div>
+      <section class="card" aria-labelledby="audience-title">
+        <h2 class="card__title" id="audience-title" data-i18n="audienceTitle">Who can I help?</h2>
+        <ul class="card__list">
+          <li data-i18n="audience1">Women and girls</li>
+          <li data-i18n="audience2">Children</li>
+          <li data-i18n="audience3">People of golden age</li>
+          <li data-i18n="audience4">Those going through difficult life situations and periods of change</li>
+          <li data-i18n="audience5">During pre-surgery preparation and post-surgery recovery</li>
+          <li data-i18n="audience6">During pregnancy and the postpartum period</li>
+          <li data-i18n="audience7">Those seeking inner harmony, calm, and a resourceful state</li>
+        </ul>
+      </section>
 
-      <div>
-        <h2 data-i18n="sec4">Reiki traditions</h2>
-        <p data-i18n="p4">Reiki traditions often speak of the importance of a peaceful state, good intentions, and respect for oneself and others. Practitioners may use Reiki as part of their personal path to develop mindfulness, patience, and a sense of harmony.</p>
-      </div>
+      <section class="card" aria-labelledby="about-title">
+        <h2 class="card__title" id="about-title" data-i18n="aboutTitle">About me</h2>
+        <p data-i18n="aboutP1">My name is Daria Amrita</p>
+        <p data-i18n="aboutP2">I hold a B.A. bachelor's degree in healthcare systems management</p>
+        <ul class="card__list card__list--roles">
+          <li data-i18n="aboutRole1">Reiki practitioner, Cosmoenergetics practitioner</li>
+          <li data-i18n="aboutRole2">Light guide</li>
+          <li data-i18n="aboutRole3">Doula</li>
+        </ul>
+        <p data-i18n="aboutP3">In my work I combine energy practices, intuitive sensing, and gentle support for a person on the path of inner change</p>
+        <p data-i18n="aboutP4">Healing through channeling</p>
+        <ul class="card__list">
+          <li data-i18n="aboutHeal1">Receiving messages</li>
+          <li data-i18n="aboutHeal2">Identifying emotional and energetic blocks</li>
+          <li data-i18n="aboutHeal3">Personal support in the process of healing, growth, and development</li>
+        </ul>
+        <p data-i18n="aboutP5">Every person is unique, so the work is tailored individually to your request, state, and life situation</p>
+        <p data-i18n="aboutP6">My goal is to help you unlock your inner potential, restore connection with yourself, and find more harmony, energy, and awareness in life</p>
+      </section>
 
-      <div>
-        <h2 data-i18n="sec5">Important to know</h2>
-        <p data-i18n="p5">Reiki is not a substitute for doctors or medical treatment. From a scientific perspective, the special energy described in Reiki has not been proven, but many people note that such sessions help them relax, feel supported, and create a calm atmosphere.</p>
-      </div>
+      <section
+        id="contact"
+        class="card contact-card"
+        aria-labelledby="contact-title"
+        tabindex="-1"
+      >
+        <h2 class="card__title" id="contact-title" data-i18n="contactSocialLead">My contacts:</h2>
 
-      <div>
-        <h2 data-i18n="sec6">Reiki in the world</h2>
-        <p data-i18n="p6">Today Reiki is known in many countries. People practice it for different reasons: some out of interest in spiritual practices, some for relaxation, and some as a way to better understand themselves and their inner state.</p>
-      </div>
+        <div class="social-grid">
+          <a
+            class="social-card"
+            href="https://api.whatsapp.com/send/?phone=972504246548"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="socialWhatsApp"
+          >💬 WhatsApp</a>
+          <a
+            class="social-card"
+            href="https://youtube.com/@dariamrita?si=xguHgvU_ulY8SpUN"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="socialYoutube"
+          >▶️ YouTube</a>
+          <a
+            class="social-card"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=daria1joy@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="socialEmail"
+          >📧 Gmail</a>
+          <a
+            class="social-card"
+            href="https://www.facebook.com/share/1Fx1Rzk5zf/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="socialFacebook"
+          >📘 Facebook</a>
+        </div>
+      </section>
 
-      <div>
-        <h2 data-i18n="sec7">The main idea</h2>
-        <p data-i18n="p7">For many people, the main idea of Reiki is to create a space of calm, attention, and harmony where one can pause, feel better, and devote time to their inner world.</p>
-      </div>
-    </div>
-  </main>
+      <section class="reiki-banner" aria-labelledby="reiki-title">
+        <h2 class="visually-hidden" id="reiki-title" data-i18n="reikiTitle">About Reiki</h2>
+        <a
+          class="social-card reiki-card"
+          href="https://dariamrita.github.io/Reiki/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="reiki-card__text" data-i18n="reikiText">If you don't know what Reiki is, </span>
+          <span class="reiki-card__link" data-i18n="reikiLink">click on me</span>
+        </a>
+      </section>
 
-  <script src="translations.js?v=11"></script>
-  <script src="script.js?v=3"></script>
+      <footer class="site-footer">
+        <p data-i18n="footer">With love and respect for your path ❤️</p>
+        <p class="site-footer__sign" data-i18n="footerSign">Daria Amrita</p>
+      </footer>
+
+    </main>
+  </div>
+  <script>
+(function () {
+  'use strict';
+
+  const TRANSLATIONS = {
+    ru: {
+      metaDescription: 'Дарья Амрита проводник Света, Космоэнергет, практик Рейки Израиль',
+      pageTitle: 'Дарья Амрита',
+      avatarAlt: 'Фото Дарья Амрита',
+      tagline: 'Проводник света • Космоэнергет • Практик Рейки',
+      intro1: 'Проходите период трансформации сознания и ищете проводника на этом пути?',
+      intro2: 'Хотите обрести гармонию с собой, освободиться от ограничивающих убеждений и вывести свою жизнь на новый уровень?',
+      intro3: 'Стремитесь восстановить внутренний баланс, наполниться энергией и почувствовать больше спокойствия, уверенности и вдохновения?',
+      intro4: 'Тогда я буду рада сопровождать вас на этом пути',
+      practicesTitle: 'Практики и направления',
+      practice1: 'Космоэнергетика',
+      practice2: 'Исцеление энергией Рейки',
+      practice3: 'Работа с энергиями Света',
+      practice4: 'Энергетическая диагностика и очищение',
+      practice5: 'Ченнелинг',
+      practice6: 'Изготовляю натуральные свечи из пчелиного воска',
+      audienceTitle: 'Кому я могу помочь?',
+      audience1: 'Женщинам и девушкам',
+      audience2: 'Детям',
+      audience3: 'Людям золотого возраста',
+      audience4: 'Тем, кто проходит через сложные жизненные ситуации и периоды перемен',
+      audience5: 'В период подготовки к операции и восстановления после операции',
+      audience6: 'Во время беременности и в послеродовой период',
+      audience7: 'Тем, кто ищет внутреннюю гармонию, спокойствие и ресурсное состояние',
+      aboutTitle: 'Обо мне',
+      aboutP1: 'Меня зовут Дарья Амрита',
+      aboutRole1: 'Практик Рейки, Космоэнергет',
+      aboutRole2: 'Проводник Света',
+      aboutRole3: 'Доула',
+      aboutP2: 'Имею B.A. степень бакалавра по управлению системами здравоохранения',
+      aboutP3: 'В своей работе я объединяю энергетические практики, интуитивное чувствование и мягкую поддержку человека на пути внутренних изменений',
+      aboutP4: 'Исцеление через ченнелинг',
+      aboutHeal1: 'Получение посланий',
+      aboutHeal2: 'Выявление эмоциональных и энергетических блоков',
+      aboutHeal3: 'Личное сопровождение в процессе исцеления, роста и развития',
+      aboutP5: 'Каждый человек уникален, поэтому работа выстраивается индивидуально под ваш запрос, состояние и жизненную ситуацию',
+      aboutP6: 'Моя цель помочь вам раскрыть внутренний потенциал, восстановить связь с собой и обрести больше гармонии, энергии и осознанности в жизни',
+      contactBtn: 'Запишитесь на консультацию',
+      contactSocialLead: 'Мои контакты:',
+      socialWhatsApp: '💬 WhatsApp',
+      socialYoutube: '▶️ YouTube',
+      socialEmail: '📧 Gmail',
+      socialFacebook: '📘 Facebook',
+      reikiTitle: 'О Рейки',
+      reikiText: 'Если вы не знаете, что такое Рейки, ',
+      reikiLink: 'нажмите на меня',
+      footer: 'С любовью и уважением к вашему пути ❤️',
+      footerSign: 'Дарья Амрита',
+      themeLight: '☀️ Светлая',
+      themeDark: '🌙 Тёмная',
+      ariaTheme: 'Тема оформления',
+      ariaLang: 'Язык сайта',
+    },
+    en: {
+      metaDescription: 'Daria Amrita Light guide, cosmoenergetics, Reiki practitioner Israel',
+      pageTitle: 'Daria Amrita',
+      avatarAlt: 'Photo Daria Amrita',
+      tagline: 'Light guide • Cosmoenergetics • Reiki practitioner',
+      intro1: 'Are you going through a period of consciousness transformation and looking for a guide on this path?',
+      intro2: 'Do you want to find harmony with yourself, release limiting beliefs, and take your life to a new level?',
+      intro3: 'Do you seek to restore inner balance, fill with energy, and feel more calm, confidence, and inspiration?',
+      intro4: 'Then I will be happy to accompany you on this path',
+      practicesTitle: 'Practices and directions',
+      practice1: 'Cosmoenergetics',
+      practice2: 'Reiki energy healing',
+      practice3: 'Work with Light energies',
+      practice4: 'Energetic diagnosis and cleansing',
+      practice5: 'Channeling',
+      practice6: 'I make natural candles from beeswax',
+      audienceTitle: 'Who can I help?',
+      audience1: 'Women and girls',
+      audience2: 'Children',
+      audience3: 'People of golden age',
+      audience4: 'Those going through difficult life situations and periods of change',
+      audience5: 'During pre-surgery preparation and post-surgery recovery',
+      audience6: 'During pregnancy and the postpartum period',
+      audience7: 'Those seeking inner harmony, calm, and a resourceful state',
+      aboutTitle: 'About me',
+      aboutP1: 'My name is Daria Amrita',
+      aboutRole1: 'Reiki practitioner, Cosmoenergetics practitioner',
+      aboutRole2: 'Light guide',
+      aboutRole3: 'Doula',
+      aboutP2: 'I hold a B.A. bachelor\'s degree in healthcare systems management',
+      aboutP3: 'In my work I combine energy practices, intuitive sensing, and gentle support for a person on the path of inner change',
+      aboutP4: 'Healing through channeling',
+      aboutHeal1: 'Receiving messages',
+      aboutHeal2: 'Identifying emotional and energetic blocks',
+      aboutHeal3: 'Personal support in the process of healing, growth, and development',
+      aboutP5: 'Every person is unique, so the work is tailored individually to your request, state, and life situation',
+      aboutP6: 'My goal is to help you unlock your inner potential, restore connection with yourself, and find more harmony, energy, and awareness in life',
+      contactBtn: 'Book a consultation',
+      contactSocialLead: 'My contacts:',
+      socialWhatsApp: '💬 WhatsApp',
+      socialYoutube: '▶️ YouTube',
+      socialEmail: '📧 Gmail',
+      socialFacebook: '📘 Facebook',
+      reikiTitle: 'About Reiki',
+      reikiText: 'If you don\'t know what Reiki is, ',
+      reikiLink: 'click on me',
+      footer: 'With love and respect for your path ❤️',
+      footerSign: 'Daria Amrita',
+      themeLight: '☀️ Light',
+      themeDark: '🌙 Dark',
+      ariaTheme: 'Display theme',
+      ariaLang: 'Site language',
+    },
+    uk: {
+      metaDescription: 'Дарія Амріта провідниця Світла, Космоенергет, практик Рейкі Ізраїль',
+      pageTitle: 'Дарія Амріта',
+      avatarAlt: 'Фото Дарія Амріта',
+      tagline: 'Провідниця Світла • Космоенергет • Практик Рейкі',
+      intro1: 'Проходите період трансформації свідомості й шукаєте провідника на цьому шляху?',
+      intro2: 'Хочете знайти гармонію із собою, звільнитися від обмежувальних переконань і вивести своє життя на новий рівень?',
+      intro3: 'Прагнете відновити внутрішній баланс, наповнитися енергією та відчути більше спокою, упевненості й натхнення?',
+      intro4: 'Тоді я буду рада супроводжувати вас на цьому шляху',
+      practicesTitle: 'Практики та напрями',
+      practice1: 'Космоенергетика',
+      practice2: 'Зцілення енергією Рейкі',
+      practice3: 'Робота з енергіями Світла',
+      practice4: 'Енергетична діагностика й очищення',
+      practice5: 'Ченнелінг',
+      practice6: 'Виготовляю натуральні свічки з бджолиного воску',
+      audienceTitle: 'Кому я можу допомогти?',
+      audience1: 'Жінкам і дівчатам',
+      audience2: 'Дітям',
+      audience3: 'Людям золотого віку',
+      audience4: 'Тим, хто проходить через складні життєві ситуації та періоди змін',
+      audience5: 'У період підготовки до операції та відновлення після операції',
+      audience6: 'Під час вагітності та в післяпологовий період',
+      audience7: 'Тим, хто шукає внутрішню гармонію, спокій і ресурсний стан',
+      aboutTitle: 'Про мене',
+      aboutP1: 'Мене звати Дарія Амріта',
+      aboutRole1: 'Практик Рейкі, Космоенергет',
+      aboutRole2: 'Провідниця Світла',
+      aboutRole3: 'Доула',
+      aboutP2: 'Маю ступінь бакалавра (B.A.) з управління системами охорони здоров\'я',
+      aboutP3: 'У своїй роботі я поєдную енергетичні практики, інтуїтивне відчуття та м\'яку підтримку людини на шляху внутрішніх змін',
+      aboutP4: 'Зцілення через ченнелінг',
+      aboutHeal1: 'Отримання послань',
+      aboutHeal2: 'Виявлення емоційних та енергетичних блоків',
+      aboutHeal3: 'Особистий супровід у процесі зцілення, зростання та розвитку',
+      aboutP5: 'Кожна людина унікальна, тому робота вибудовується індивідуально під ваш запит, стан і життєву ситуацію',
+      aboutP6: 'Моя мета допомогти вам розкрити внутрішній потенціал, відновити зв\'язок із собою та знайти більше гармонії, енергії й усвідомленості в житті',
+      contactBtn: 'Запишіться на консультацію',
+      contactSocialLead: 'Мої контакти:',
+      socialWhatsApp: '💬 WhatsApp',
+      socialYoutube: '▶️ YouTube',
+      socialEmail: '📧 Gmail',
+      socialFacebook: '📘 Facebook',
+      reikiTitle: 'Про Рейкі',
+      reikiText: 'Якщо ви не знаєте, що таке Рейкі, ',
+      reikiLink: 'натисніть на мене',
+      footer: 'З любов\'ю і повагою до вашого шляху ❤️',
+      footerSign: 'Дарія Амріта',
+      themeLight: '☀️ Світла',
+      themeDark: '🌙 Темна',
+      ariaTheme: 'Тема оформлення',
+      ariaLang: 'Мова сайту',
+    },
+    de: {
+      metaDescription: 'Daria Amrita Lichtbegleiterin, Kosmoenergetik, Reiki-Praktizierende Israel',
+      pageTitle: 'Daria Amrita',
+      avatarAlt: 'Foto Daria Amrita',
+      tagline: 'Lichtbegleiterin • Kosmoenergetik • Reiki-Praktizierende',
+      intro1: 'Befinden Sie sich in einer Phase der Bewusstseinstransformation und suchen eine Begleitung auf diesem Weg?',
+      intro2: 'Möchten Sie Harmonie mit sich selbst finden, begrenzende Überzeugungen loslassen und Ihr Leben auf eine neue Ebene bringen?',
+      intro3: 'Möchten Sie Ihr inneres Gleichgewicht wiederherstellen, sich mit Energie füllen und mehr Ruhe, Selbstvertrauen und Inspiration spüren?',
+      intro4: 'Dann begleite ich Sie gerne auf diesem Weg',
+      practicesTitle: 'Praktiken und Richtungen',
+      practice1: 'Kosmoenergetik',
+      practice2: 'Heilung mit Reiki-Energie',
+      practice3: 'Arbeit mit Lichtenergien',
+      practice4: 'Energetische Diagnose und Reinigung',
+      practice5: 'Channeling',
+      practice6: 'Ich stelle natürliche Kerzen aus Bienenwachs her',
+      audienceTitle: 'Wem kann ich helfen?',
+      audience1: 'Frauen und Mädchen',
+      audience2: 'Kindern',
+      audience3: 'Menschen im goldenen Alter',
+      audience4: 'Menschen in schwierigen Lebenssituationen und Veränderungsphasen',
+      audience5: 'Während der Vorbereitung auf eine Operation und der Erholung danach',
+      audience6: 'Während der Schwangerschaft und im Wochenbett',
+      audience7: 'Menschen, die innere Harmonie, Ruhe und einen ressourcenreichen Zustand suchen',
+      aboutTitle: 'Über mich',
+      aboutP1: 'Mein Name ist Daria Amrita',
+      aboutRole1: 'Reiki-Praktizierende, Kosmoenergetik-Praktizierende',
+      aboutRole2: 'Lichtbegleiterin',
+      aboutRole3: 'Doula',
+      aboutP2: 'Ich habe einen B.A.-Bachelorabschluss in Gesundheitssystemmanagement',
+      aboutP3: 'In meiner Arbeit verbinde ich Energiepraktiken, intuitives Spüren und sanfte Unterstützung für Menschen auf dem Weg innerer Veränderung',
+      aboutP4: 'Heilung durch Channeling',
+      aboutHeal1: 'Empfang von Botschaften',
+      aboutHeal2: 'Erkennung emotionaler und energetischer Blockaden',
+      aboutHeal3: 'Persönliche Begleitung im Prozess von Heilung, Wachstum und Entwicklung',
+      aboutP5: 'Jeder Mensch ist einzigartig, deshalb wird die Arbeit individuell auf Ihre Anfrage, Ihren Zustand und Ihre Lebenssituation abgestimmt',
+      aboutP6: 'Mein Ziel ist es, Ihnen zu helfen, Ihr inneres Potenzial zu entfalten, die Verbindung zu sich selbst wiederherzustellen und mehr Harmonie, Energie und Bewusstheit im Leben zu finden',
+      contactBtn: 'Beratung buchen',
+      contactSocialLead: 'Meine Kontakte:',
+      socialWhatsApp: '💬 WhatsApp',
+      socialYoutube: '▶️ YouTube',
+      socialEmail: '📧 Gmail',
+      socialFacebook: '📘 Facebook',
+      reikiTitle: 'Über Reiki',
+      reikiText: 'Wenn Sie nicht wissen, was Reiki ist, ',
+      reikiLink: 'klicken Sie auf mich',
+      footer: 'Mit Liebe und Respekt für Ihren Weg ❤️',
+      footerSign: 'Daria Amrita',
+      themeLight: '☀️ Hell',
+      themeDark: '🌙 Dunkel',
+      ariaTheme: 'Darstellungsthema',
+      ariaLang: 'Sprache der Website',
+    },
+    fr: {
+      metaDescription: 'Daria Amrita guide de Lumière, cosmoénergétique, praticienne Reiki Israël',
+      pageTitle: 'Daria Amrita',
+      avatarAlt: 'Photo Daria Amrita',
+      tagline: 'Guide de Lumière • Cosmoénergétique • Praticienne Reiki',
+      intro1: 'Traversez-vous une période de transformation de la conscience et cherchez-vous un guide sur ce chemin ?',
+      intro2: 'Souhaitez-vous retrouver l\'harmonie avec vous-même, vous libérer des croyances limitantes et faire passer votre vie à un nouveau niveau ?',
+      intro3: 'Cherchez-vous à rétablir l\'équilibre intérieur, vous remplir d\'énergie et ressentir davantage de calme, de confiance et d\'inspiration ?',
+      intro4: 'Alors je serai heureuse de vous accompagner sur ce chemin',
+      practicesTitle: 'Pratiques et orientations',
+      practice1: 'Cosmoénergétique',
+      practice2: 'Guérison par l\'énergie Reiki',
+      practice3: 'Travail avec les énergies de Lumière',
+      practice4: 'Diagnostic et nettoyage énergétiques',
+      practice5: 'Channeling',
+      practice6: 'Je fabrique des bougies naturelles en cire d\'abeille',
+      audienceTitle: 'Qui puis-je aider ?',
+      audience1: 'Les femmes et les filles',
+      audience2: 'Les enfants',
+      audience3: 'Aux personnes du bel âge',
+      audience4: 'Celles et ceux qui traversent des situations de vie difficiles et des périodes de changement',
+      audience5: 'Pendant la préparation préopératoire et la récupération postopératoire',
+      audience6: 'Pendant la grossesse et la période post-partum',
+      audience7: 'Celles et ceux qui recherchent l\'harmonie intérieure, le calme et un état de ressources',
+      aboutTitle: 'À propos de moi',
+      aboutP1: 'Je m\'appelle Daria Amrita',
+      aboutRole1: 'Praticienne Reiki, praticienne en cosmoénergétique',
+      aboutRole2: 'Guide de Lumière',
+      aboutRole3: 'Doula',
+      aboutP2: 'Je détiens un diplôme de licence (B.A.) en gestion des systèmes de santé',
+      aboutP3: 'Dans mon travail, j\'allie pratiques énergétiques, ressenti intuitif et soutien doux de la personne sur le chemin du changement intérieur',
+      aboutP4: 'Guérison par le channeling',
+      aboutHeal1: 'Réception de messages',
+      aboutHeal2: 'Identification des blocages émotionnels et énergétiques',
+      aboutHeal3: 'Accompagnement personnel dans le processus de guérison, croissance et développement',
+      aboutP5: 'Chaque personne est unique, c\'est pourquoi l\'accompagnement est construit de manière individuelle selon votre demande, votre état et votre situation de vie',
+      aboutP6: 'Mon objectif est de vous aider à révéler votre potentiel intérieur, à restaurer le lien avec vous-même et à trouver davantage d\'harmonie, d\'énergie et de conscience dans la vie',
+      contactBtn: 'Réservez une consultation',
+      contactSocialLead: 'Mes contacts :',
+      socialWhatsApp: '💬 WhatsApp',
+      socialYoutube: '▶️ YouTube',
+      socialEmail: '📧 Gmail',
+      socialFacebook: '📘 Facebook',
+      reikiTitle: 'À propos du Reiki',
+      reikiText: 'Si vous ne savez pas ce qu\'est le Reiki, ',
+      reikiLink: 'cliquez sur moi',
+      footer: 'Avec amour et respect pour votre chemin ❤️',
+      footerSign: 'Daria Amrita',
+      themeLight: '☀️ Clair',
+      themeDark: '🌙 Sombre',
+      ariaTheme: 'Thème d\'affichage',
+      ariaLang: 'Langue du site',
+    },
+    es: {
+      metaDescription: 'Daria Amrita guía de Luz, cosmoenergética, practicante de Reiki Israel',
+      pageTitle: 'Daria Amrita',
+      avatarAlt: 'Foto Daria Amrita',
+      tagline: 'Guía de Luz • Cosmoenergética • Practicante de Reiki',
+      intro1: '¿Estás atravesando un período de transformación de la conciencia y buscas una guía en este camino?',
+      intro2: '¿Quieres encontrar armonía interior, liberarte de creencias limitantes y llevar tu vida a un nuevo nivel?',
+      intro3: '¿Buscas restaurar el equilibrio interior, llenarte de energía y sentir más calma, confianza e inspiración?',
+      intro4: 'Entonces estaré encantada de acompañarte en este camino',
+      practicesTitle: 'Prácticas y direcciones',
+      practice1: 'Cosmoenergética',
+      practice2: 'Sanación con energía Reiki',
+      practice3: 'Trabajo con energías de Luz',
+      practice4: 'Diagnóstico y limpieza energética',
+      practice5: 'Channeling',
+      practice6: 'Elaboro velas naturales de cera de abeja',
+      audienceTitle: '¿A quién puedo ayudar?',
+      audience1: 'Mujeres y niñas',
+      audience2: 'Niños',
+      audience3: 'A personas de la edad dorada',
+      audience4: 'Quienes atraviesan situaciones de vida difíciles y períodos de cambio',
+      audience5: 'Durante la preparación prequirúrgica y la recuperación posquirúrgica',
+      audience6: 'Durante el embarazo y el período posparto',
+      audience7: 'Quienes buscan armonía interior, calma y un estado de recursos',
+      aboutTitle: 'Sobre mí',
+      aboutP1: 'Me llamo Daria Amrita',
+      aboutRole1: 'Practicante de Reiki, practicante de cosmoenergética',
+      aboutRole2: 'Guía de Luz',
+      aboutRole3: 'Doula',
+      aboutP2: 'Tengo un título de licenciatura (B.A.) en gestión de sistemas de salud',
+      aboutP3: 'En mi trabajo combino prácticas energéticas, percepción intuitiva y apoyo suave para la persona en el camino de los cambios internos',
+      aboutP4: 'Sanación a través del channeling',
+      aboutHeal1: 'Recepción de mensajes',
+      aboutHeal2: 'Identificación de bloqueos emocionales y energéticos',
+      aboutHeal3: 'Acompañamiento personal en el proceso de sanación, crecimiento y desarrollo',
+      aboutP5: 'Cada persona es única, por eso el trabajo se adapta de forma individual a tu solicitud, estado y situación de vida',
+      aboutP6: 'Mi objetivo es ayudarte a revelar tu potencial interior, restaurar la conexión contigo y encontrar más armonía, energía y consciencia en la vida',
+      contactBtn: 'Reserva una consulta',
+      contactSocialLead: 'Mis contactos:',
+      socialWhatsApp: '💬 WhatsApp',
+      socialYoutube: '▶️ YouTube',
+      socialEmail: '📧 Gmail',
+      socialFacebook: '📘 Facebook',
+      reikiTitle: 'Sobre Reiki',
+      reikiText: 'Si no sabes qué es Reiki, ',
+      reikiLink: 'haz clic en mí',
+      footer: 'Con amor y respeto por tu camino ❤️',
+      footerSign: 'Daria Amrita',
+      themeLight: '☀️ Claro',
+      themeDark: '🌙 Oscuro',
+      ariaTheme: 'Tema de visualización',
+      ariaLang: 'Idioma del sitio',
+    },
+    it: {
+      metaDescription: 'Daria Amrita guida di Luce, cosmoenergetica, praticante Reiki Israele',
+      pageTitle: 'Daria Amrita',
+      avatarAlt: 'Foto Daria Amrita',
+      tagline: 'Guida di Luce • Cosmoenergetica • Praticante Reiki',
+      intro1: 'Stai attraversando un periodo di trasformazione della coscienza e cerchi una guida su questo cammino?',
+      intro2: 'Vuoi trovare armonia interiormente, liberarti da convinzioni limitanti e portare la tua vita a un nuovo livello?',
+      intro3: 'Cerchi di ristabilire l\'equilibrio interiore, riempirti di energia e sentire più calma, fiducia e ispirazione?',
+      intro4: 'Allora sarò felice di accompagnarti su questo cammino',
+      practicesTitle: 'Pratiche e direzioni',
+      practice1: 'Cosmoenergetica',
+      practice2: 'Guarigione con energia Reiki',
+      practice3: 'Lavoro con le energie della Luce',
+      practice4: 'Diagnosi e pulizia energetica',
+      practice5: 'Channeling',
+      practice6: 'Realizzo candele naturali in cera d\'api',
+      audienceTitle: 'Chi posso aiutare?',
+      audience1: 'Donne e ragazze',
+      audience2: 'Bambini',
+      audience3: 'Persone dell\'età d\'oro',
+      audience4: 'Chi attraversa situazioni di vita difficili e periodi di cambiamento',
+      audience5: 'Durante la preparazione pre-operatoria e il recupero post-operatorio',
+      audience6: 'Durante la gravidanza e il periodo post-partum',
+      audience7: 'Chi cerca armonia interiore, calma e uno stato di risorse',
+      aboutTitle: 'Su di me',
+      aboutP1: 'Mi chiamo Daria Amrita',
+      aboutRole1: 'Praticante Reiki, praticante di cosmoenergetica',
+      aboutRole2: 'Guida di Luce',
+      aboutRole3: 'Doula',
+      aboutP2: 'Possiedo una laurea triennale (B.A.) in gestione dei sistemi sanitari',
+      aboutP3: 'Nel mio lavoro unisco pratiche energetiche, percezione intuitiva e supporto delicato della persona nel percorso dei cambiamenti interiori',
+      aboutP4: 'Guarigione attraverso il channeling',
+      aboutHeal1: 'Ricezione dei messaggi',
+      aboutHeal2: 'Individuazione di blocchi emotivi ed energetici',
+      aboutHeal3: 'Accompagnamento personale nel processo di guarigione, crescita e sviluppo',
+      aboutP5: 'Ogni persona è unica, quindi il lavoro viene costruito in modo individuale in base alla tua richiesta, al tuo stato e alla tua situazione di vita',
+      aboutP6: 'Il mio obiettivo è aiutarti a sbloccare il tuo potenziale interiore, ristabilire la connessione con te e trovare più armonia, energia e consapevolezza nella vita',
+      contactBtn: 'Prenota una consulenza',
+      contactSocialLead: 'I miei contatti:',
+      socialWhatsApp: '💬 WhatsApp',
+      socialYoutube: '▶️ YouTube',
+      socialEmail: '📧 Gmail',
+      socialFacebook: '📘 Facebook',
+      reikiTitle: 'Sul Reiki',
+      reikiText: 'Se non sai cos\'è il Reiki, ',
+      reikiLink: 'clicca su di me',
+      footer: 'Con amore e rispetto per il tuo cammino ❤️',
+      footerSign: 'Daria Amrita',
+      themeLight: '☀️ Chiaro',
+      themeDark: '🌙 Scuro',
+      ariaTheme: 'Tema di visualizzazione',
+      ariaLang: 'Lingua del sito',
+    },
+    pt: {
+      metaDescription: 'Daria Amrita guia de Luz, cosmoenergética, praticante de Reiki Israel',
+      pageTitle: 'Daria Amrita',
+      avatarAlt: 'Foto Daria Amrita',
+      tagline: 'Guia de Luz • Cosmoenergética • Praticante de Reiki',
+      intro1: 'Está a passar por um período de transformação da consciência e procura uma guia neste caminho?',
+      intro2: 'Quer encontrar harmonia interior, libertar-se de crenças limitantes e levar a sua vida para um novo nível?',
+      intro3: 'Procura restaurar o equilíbrio interior, encher-se de energia e sentir mais calma, confiança e inspiração?',
+      intro4: 'Então terei todo o gosto em acompanhar você neste caminho',
+      practicesTitle: 'Práticas e direções',
+      practice1: 'Cosmoenergética',
+      practice2: 'Cura com energia Reiki',
+      practice3: 'Trabalho com energias da Luz',
+      practice4: 'Diagnóstico e limpeza energética',
+      practice5: 'Channeling',
+      practice6: 'Faço velas naturais de cera de abelha',
+      audienceTitle: 'Quem posso ajudar?',
+      audience1: 'Mulheres e raparigas',
+      audience2: 'Crianças',
+      audience3: 'A pessoas da idade dourada',
+      audience4: 'Quem passa por situações de vida difíceis e períodos de mudança',
+      audience5: 'Durante a preparação pré-cirúrgica e a recuperação pós-cirúrgica',
+      audience6: 'Durante a gravidez e o período pós-parto',
+      audience7: 'Quem procura harmonia interior, calma e um estado de recursos',
+      aboutTitle: 'Sobre mim',
+      aboutP1: 'O meu nome é Daria Amrita',
+      aboutRole1: 'Praticante de Reiki, praticante de cosmoenergética',
+      aboutRole2: 'Guia de Luz',
+      aboutRole3: 'Doula',
+      aboutP2: 'Possuo licenciatura (B.A.) em gestão de sistemas de saúde',
+      aboutP3: 'No meu trabalho combino práticas energéticas, perceção intuitiva e apoio suave da pessoa no caminho das mudanças internas',
+      aboutP4: 'Cura através do channeling',
+      aboutHeal1: 'Receção de mensagens',
+      aboutHeal2: 'Identificação de bloqueios emocionais e energéticos',
+      aboutHeal3: 'Acompanhamento pessoal no processo de cura, crescimento e desenvolvimento',
+      aboutP5: 'Cada pessoa é única, por isso o trabalho é construído de forma individual para o seu pedido, estado e situação de vida',
+      aboutP6: 'O meu objetivo é ajudá-lo a desbloquear o potencial interior, restaurar a ligação consigo e encontrar mais harmonia, energia e consciência na vida',
+      contactBtn: 'Marque uma consulta',
+      contactSocialLead: 'Os meus contactos:',
+      socialWhatsApp: '💬 WhatsApp',
+      socialYoutube: '▶️ YouTube',
+      socialEmail: '📧 Gmail',
+      socialFacebook: '📘 Facebook',
+      reikiTitle: 'Sobre Reiki',
+      reikiText: 'Se não sabe o que é Reiki, ',
+      reikiLink: 'clique em mim',
+      footer: 'Com amor e respeito pelo seu caminho ❤️',
+      footerSign: 'Daria Amrita',
+      themeLight: '☀️ Claro',
+      themeDark: '🌙 Escuro',
+      ariaTheme: 'Tema de exibição',
+      ariaLang: 'Idioma do site',
+    },
+    pl: {
+      metaDescription: 'Daria Amrita przewodniczka Światła, kosmoenergetyka, praktyk Reiki Izrael',
+      pageTitle: 'Daria Amrita',
+      avatarAlt: 'Zdjęcie Daria Amrita',
+      tagline: 'Przewodniczka Światła • Kosmoenergetyka • Praktyk Reiki',
+      intro1: 'Przechodzisz okres transformacji świadomości i szukasz przewodniczki na tej drodze?',
+      intro2: 'Chcesz odnaleźć harmonię ze sobą, uwolnić się od ograniczających przekonań i wynieść swoje życie na nowy poziom?',
+      intro3: 'Pragniesz odzyskać wewnętrzną równowagę, napełnić się energią i poczuć więcej spokoju, pewności siebie oraz inspiracji?',
+      intro4: 'Wtedy z radością będę Ci towarzyszyć na tej drodze',
+      practicesTitle: 'Praktyki i kierunki',
+      practice1: 'Kosmoenergetyka',
+      practice2: 'Uzdrawianie energią Reiki',
+      practice3: 'Praca z energiami Światła',
+      practice4: 'Diagnostyka i oczyszczanie energetyczne',
+      practice5: 'Channeling',
+      practice6: 'Wykonuję naturalne świece z wosku pszczelego',
+      audienceTitle: 'Komu mogę pomóc?',
+      audience1: 'Kobietom i dziewczętom',
+      audience2: 'Dzieciom',
+      audience3: 'Ludziom w złotym wieku',
+      audience4: 'Osobom przechodzącym przez trudne sytuacje życiowe i okresy zmian',
+      audience5: 'W okresie przygotowania do operacji i rekonwalescencji po operacji',
+      audience6: 'W czasie ciąży i w okresie poporodowym',
+      audience7: 'Osobom szukającym wewnętrznej harmonii, spokoju i stanu zasobów',
+      aboutTitle: 'O mnie',
+      aboutP1: 'Nazywam się Daria Amrita',
+      aboutRole1: 'Praktyk Reiki, praktyk kosmoenergetyki',
+      aboutRole2: 'Przewodniczka Światła',
+      aboutRole3: 'Doula',
+      aboutP2: 'Posiadam stopień licencjata (B.A.) w zarządzaniu systemami ochrony zdrowia',
+      aboutP3: 'W swojej pracy łączę praktyki energetyczne, intuicyjne odczuwanie i łagodne wsparcie osoby na drodze wewnętrznych zmian',
+      aboutP4: 'Uzdrawianie przez channeling',
+      aboutHeal1: 'Odbieranie przekazów',
+      aboutHeal2: 'Wykrywanie blokad emocjonalnych i energetycznych',
+      aboutHeal3: 'Osobiste towarzyszenie w procesie uzdrawiania, wzrostu i rozwoju',
+      aboutP5: 'Każda osoba jest wyjątkowa, dlatego praca jest budowana indywidualnie pod Twoją potrzebę, stan i sytuację życiową',
+      aboutP6: 'Moim celem jest pomóc Ci odkryć wewnętrzny potencjał, odbudować kontakt z sobą i znaleźć więcej harmonii, energii oraz świadomości w życiu',
+      contactBtn: 'Umów konsultację',
+      contactSocialLead: 'Moje kontakty:',
+      socialWhatsApp: '💬 WhatsApp',
+      socialYoutube: '▶️ YouTube',
+      socialEmail: '📧 Gmail',
+      socialFacebook: '📘 Facebook',
+      reikiTitle: 'O Reiki',
+      reikiText: 'Jeśli nie wiesz, czym jest Reiki, ',
+      reikiLink: 'kliknij na mnie',
+      footer: 'Z miłością i szacunkiem dla Twojej drogi ❤️',
+      footerSign: 'Daria Amrita',
+      themeLight: '☀️ Jasny',
+      themeDark: '🌙 Ciemny',
+      ariaTheme: 'Motyw wyświetlania',
+      ariaLang: 'Język strony',
+    },
+    tr: {
+      metaDescription: 'Daria Amrita Işık rehberi, Kozmoenerjetik, Reiki uygulayıcısı İsrail',
+      pageTitle: 'Daria Amrita',
+      avatarAlt: 'Fotoğraf Daria Amrita',
+      tagline: 'Işık rehberi • Kozmoenerjetik • Reiki uygulayıcısı',
+      intro1: 'Bilinç dönüşümü döneminden geçiyor ve bu yolda bir rehber mi arıyorsunuz?',
+      intro2: 'Kendinizle uyum bulmak, sınırlayıcı inançlardan özgürleşmek ve hayatınızı yeni bir seviyeye taşımak ister misiniz?',
+      intro3: 'İç dengeyi yeniden kurmak, enerjiyle dolmak ve daha fazla sakinlik, güven ve ilham hissetmek mi istiyorsunuz?',
+      intro4: 'O halde bu yolda size eşlik etmekten memnuniyet duyarım',
+      practicesTitle: 'Uygulamalar ve yönler',
+      practice1: 'Kozmoenerjetik',
+      practice2: 'Reiki enerjisiyle şifa',
+      practice3: 'Işık enerjileriyle çalışma',
+      practice4: 'Enerjik teşhis ve arınma',
+      practice5: 'Şaneling',
+      practice6: 'Doğal balmumundan mumlar üretiyorum',
+      audienceTitle: 'Kime yardımcı olabilirim?',
+      audience1: 'Kadınlara ve kızlara',
+      audience2: 'Çocuklara',
+      audience3: 'Altın yaşta insanlara',
+      audience4: 'Zorlu yaşam durumlarından ve değişim dönemlerinden geçenlere',
+      audience5: 'Ameliyat öncesi hazırlık ve ameliyat sonrası iyileşme sürecinde',
+      audience6: 'Hamilelik ve doğum sonrası dönemde',
+      audience7: 'İç uyum, sakinlik ve kaynak dolu bir hâl arayanlara',
+      aboutTitle: 'Hakkımda',
+      aboutP1: 'Benim adım Daria Amrita',
+      aboutRole1: 'Reiki uygulayıcısı, Kozmoenerjetik uygulayıcısı',
+      aboutRole2: 'Işık rehberi',
+      aboutRole3: 'Doula',
+      aboutP2: 'Sağlık sistemi yönetimi alanında B.A. lisans derecesine sahibim',
+      aboutP3: 'Çalışmalarımda enerji uygulamalarını, sezgisel hissedişi ve kişinin içsel değişim yolundaki nazik desteğini birleştiriyorum',
+      aboutP4: 'Şaneling yoluyla şifa',
+      aboutHeal1: 'Mesaj alma',
+      aboutHeal2: 'Duygusal ve enerjik blokların tespiti',
+      aboutHeal3: 'Şifa, büyüme ve gelişim sürecinde kişisel eşlik',
+      aboutP5: 'Her insan benzersizdir; bu nedenle çalışma, talebinize, durumunuza ve yaşam koşullarınıza göre bireysel olarak şekillenir',
+      aboutP6: 'Amacım, iç potansiyelinizi açığa çıkarmanıza, kendinizle bağı yeniden kurmanıza ve yaşamda daha fazla uyum, enerji ve farkındalık bulmanıza yardımcı olmaktır',
+      contactBtn: 'Danışmanlık için randevu alın',
+      contactSocialLead: 'İletişim bilgilerim:',
+      socialWhatsApp: '💬 WhatsApp',
+      socialYoutube: '▶️ YouTube',
+      socialEmail: '📧 Gmail',
+      socialFacebook: '📘 Facebook',
+      reikiTitle: 'Reiki hakkında',
+      reikiText: 'Reiki\'nin ne olduğunu bilmiyorsanız, ',
+      reikiLink: 'bana tıklayın',
+      footer: 'Yolunuza sevgi ve saygıyla ❤️',
+      footerSign: 'Daria Amrita',
+      themeLight: '☀️ Açık',
+      themeDark: '🌙 Koyu',
+      ariaTheme: 'Görüntü teması',
+      ariaLang: 'Site dili',
+    },
+    ar: {
+      metaDescription: 'داريا أمريتا مرشدة نور، كوزموإنيرجيتيكس، وممارسة ريكي إسرائيل',
+      pageTitle: 'داريا أمريتا',
+      avatarAlt: 'صورة داريا أمريتا',
+      tagline: 'مرشدة نور • كوزموإنيرجيتيكس • ممارسة ريكي',
+      intro1: 'هل تمرّين بفترة تحوّل في الوعي وتبحثين عن مرشدة في هذا الطريق؟',
+      intro2: 'هل تريدين الوصول إلى الانسجام مع نفسك، والتحرر من المعتقدات المقيِّدة، والارتقاء بحياتك إلى مستوى جديد؟',
+      intro3: 'هل تسعين إلى استعادة التوازن الداخلي، والامتلاء بالطاقة، والشعور بمزيد من الهدوء والثقة والإلهام؟',
+      intro4: 'إذن يسعدني أن أرافقك في هذا الطريق',
+      practicesTitle: 'الممارسات والاتجاهات',
+      practice1: 'كوزموإنيرجيتيكس',
+      practice2: 'الشفاء بطاقة ريكي',
+      practice3: 'العمل مع طاقات النور',
+      practice4: 'التشخيص والتنقية الطاقية',
+      practice5: 'تشانلينغ',
+      practice6: 'أصنع شموعًا طبيعية من شمع العسل',
+      audienceTitle: 'من يمكنني مساعدته؟',
+      audience1: 'النساء والفتيات',
+      audience2: 'الأطفال',
+      audience3: 'لأصحاب العمر الذهبي',
+      audience4: 'من يمرّون بمواقف حياتية صعبة وفترات تغيّر',
+      audience5: 'أثناء التحضير قبل الجراحة والتعافي بعد الجراحة',
+      audience6: 'أثناء الحمل وفترة ما بعد الولادة',
+      audience7: 'من يبحثون عن الانسجام الداخلي والهدوء وحالة مليئة بالموارد',
+      aboutTitle: 'عنّي',
+      aboutP1: 'اسمي داريا أمريتا',
+      aboutRole1: 'ممارسة ريكي، وممارسة كوزموإنيرجيتيكس',
+      aboutRole2: 'مرشدة نور',
+      aboutRole3: 'دولا',
+      aboutP2: 'أحمل درجة البكالوريوس (B.A.) في إدارة أنظمة الرعاية الصحية',
+      aboutP3: 'في عملي أجمع بين الممارسات الطاقية، والإحساس الحدسي، والدعم اللطيف للإنسان في طريق التغيير الداخلي',
+      aboutP4: 'الشفاء عبر التشانلينغ',
+      aboutHeal1: 'تلقّي الرسائل',
+      aboutHeal2: 'كشف الحواجز العاطفية والطاقية',
+      aboutHeal3: 'المرافقة الشخصية في عملية الشفاء والنمو والتطوّر',
+      aboutP5: 'كل إنسان فريد، لذلك يُبنى العمل بشكل فردي وفق طلبك وحالتك وظروف حياتك',
+      aboutP6: 'هدفي هو مساعدتك على كشف إمكاناتك الداخلية، واستعادة الاتصال بنفسك، والعثور على مزيد من الانسجام والطاقة والوعي في الحياة',
+      contactBtn: 'احجز استشارة',
+      contactSocialLead: 'وسائل تواصلي:',
+      socialWhatsApp: '💬 واتساب',
+      socialYoutube: '▶️ يوتيوب',
+      socialEmail: '📧 جيميل',
+      socialFacebook: '📘 فيسبوك',
+      reikiTitle: 'عن الريكي',
+      reikiText: 'إذا لم تكن/ي تعرف/ين ما هو الريكي، ',
+      reikiLink: 'اضغط/ي عليّ',
+      footer: 'مع الحب والاحترام لطريقك ❤️',
+      footerSign: 'داريا أمريتا',
+      themeLight: '☀️ فاتح',
+      themeDark: '🌙 داكن',
+      ariaTheme: 'سمة العرض',
+      ariaLang: 'لغة الموقع',
+    },
+    he: {
+      metaDescription: 'דריה אמריטה מדריכת אור, קוסמו-אנרגטיקה, ומטפלת ברייקי ישראל',
+      pageTitle: 'דריה אמריטה',
+      avatarAlt: 'תמונה דריה אמריטה',
+      tagline: 'מדריכת אור • קוסמו-אנרגטיקה • מטפלת ברייקי',
+      intro1: 'האם את עוברת תקופה של טרנספורמציה תודעתית ומחפשת מדריכה בדרך הזו?',
+      intro2: 'האם את רוצה למצוא הרמוניה עם עצמך, להשתחרר מאמונות מגבילות ולהעלות את חייך לרמה חדשה?',
+      intro3: 'האם את מבקשת לשקם איזון פנימי, להתמלא באנרגיה ולהרגיש יותר שקט, ביטחון והשראה?',
+      intro4: 'אז אשמח ללוות אותך בדרך הזו',
+      practicesTitle: 'פרקטיקות וכיוונים',
+      practice1: 'קוסמו-אנרגטיקה',
+      practice2: 'ריפוי באנרגיית רייקי',
+      practice3: 'עבודה עם אנרגיות האור',
+      practice4: 'אבחון וניקוי אנרגטי',
+      practice5: 'צ\'נלינג',
+      practice6: 'אני מכינה נרות טבעיים משעוות דבורים',
+      audienceTitle: 'למי אני יכולה לעזור?',
+      audience1: 'לנשים ולנערות',
+      audience2: 'לילדים',
+      audience3: 'לאנשים בגיל הזהב',
+      audience4: 'למי שעוברים מצבי חיים מאתגרים ותקופות של שינוי',
+      audience5: 'במהלך הכנה לניתוח והחלמה לאחר ניתוח',
+      audience6: 'במהלך ההיריון ובתקופה שלאחר הלידה',
+      audience7: 'למי שמחפשים הרמוניה פנימית, רוגע ומצב משאבי',
+      aboutTitle: 'עליי',
+      aboutP1: 'שמי דריה אמריטה',
+      aboutRole1: 'מטפלת ברייקי, מטפלת בקוסמו-אנרגטיקה',
+      aboutRole2: 'מדריכת אור',
+      aboutRole3: 'דולה',
+      aboutP2: 'יש לי תואר ראשון (B.A.) בניהול מערכות בריאות',
+      aboutP3: 'בעבודתי אני משלבת פרקטיקות אנרגטיות, תחושה אינטואיטיבית ותמיכה עדינה לאדם בדרך של שינוי פנימי',
+      aboutP4: 'ריפוי דרך צ\'נלינג',
+      aboutHeal1: 'קבלת מסרים',
+      aboutHeal2: 'איתור חסימות רגשיות ואנרגטיות',
+      aboutHeal3: 'ליווי אישי בתהליך של ריפוי, צמיחה והתפתחות',
+      aboutP5: 'כל אדם הוא ייחודי, ולכן העבודה נבנית באופן אישי לפי הבקשה, המצב וסיטואציית החיים שלך',
+      aboutP6: 'המטרה שלי היא לעזור לך לפתוח את הפוטנציאל הפנימי, לשקם את הקשר עם עצמך ולמצוא יותר הרמוניה, אנרגיה ומודעות בחיים',
+      contactBtn: 'לקביעת ייעוץ',
+      contactSocialLead: 'אמצעי הקשר שלי:',
+      socialWhatsApp: '💬 וואטסאפ',
+      socialYoutube: '▶️ יוטיוב',
+      socialEmail: '📧 ג\'ימייל',
+      socialFacebook: '📘 פייסבוק',
+      reikiTitle: 'על רייקי',
+      reikiText: 'אם אינך יודע/ת מה זה רייקי, ',
+      reikiLink: 'לחץ/י עליי',
+      footer: 'באהבה ובכבוד לדרך שלך ❤️',
+      footerSign: 'דריה אמריטה',
+      themeLight: '☀️ בהיר',
+      themeDark: '🌙 כהה',
+      ariaTheme: 'ערכת תצוגה',
+      ariaLang: 'שפת האתר',
+    },
+    zh: {
+      metaDescription: '达丽娅·阿姆里塔光之引导者、宇宙能量实践者、灵气疗愈师。以色列。',
+      pageTitle: '达丽娅·阿姆里塔',
+      avatarAlt: '照片 达丽娅·阿姆里塔',
+      tagline: '光之引导者 • 宇宙能量 • 灵气实践者',
+      intro1: '你是否正在经历意识转化期，并在这条道路上寻找一位引导者？',
+      intro2: '你是否想与自己达成和谐，摆脱限制性信念，并让生活迈向新层次？',
+      intro3: '你是否希望恢复内在平衡、充满能量，并感受到更多平静、自信与灵感？',
+      intro4: '那么，我很乐意在这条道路上陪伴你。',
+      practicesTitle: '实践与方向',
+      practice1: '宇宙能量',
+      practice2: '灵气能量疗愈',
+      practice3: '光之能量工作',
+      practice4: '能量诊断与净化',
+      practice5: '通灵',
+      practice6: '我制作天然蜂蜡蜡烛',
+      audienceTitle: '我可以帮助谁？',
+      audience1: '女性与女孩',
+      audience2: '儿童',
+      audience3: '黄金年龄段的人',
+      audience4: '正在经历困难人生处境和变化时期的人',
+      audience5: '手术前准备与术后恢复期间',
+      audience6: '怀孕及产后时期',
+      audience7: '寻求内在和谐、平静与充沛状态的人',
+      aboutTitle: '关于我',
+      aboutP1: '我叫达丽娅·阿姆里塔。',
+      aboutRole1: '灵气实践者，宇宙能量实践者',
+      aboutRole2: '光之引导者',
+      aboutRole3: '导乐师',
+      aboutP2: '我拥有医疗保健系统管理学士学位（B.A.）。',
+      aboutP3: '在我的工作中，我将能量实践、直觉感知与对个体在内在变化之路上的温和支持结合在一起',
+      aboutP4: '通过通灵疗愈',
+      aboutHeal1: '接收讯息',
+      aboutHeal2: '识别情绪与能量阻塞',
+      aboutHeal3: '在疗愈、成长与发展过程中的个人陪伴',
+      aboutP5: '每个人都是独特的，因此服务会根据你的需求、状态和人生情境进行个性化安排',
+      aboutP6: '我的目标是帮助你开启内在潜能，恢复与自我的连接，并在生活中获得更多和谐、能量与觉察',
+      contactBtn: '预约咨询',
+      contactSocialLead: '我的联系方式：',
+      socialWhatsApp: '💬 瓦次艾普',
+      socialYoutube: '▶️ 油管',
+      socialEmail: '📧 谷歌邮箱',
+      socialFacebook: '📘 脸书',
+      reikiTitle: '关于灵气',
+      reikiText: '如果您不了解什么是灵气，',
+      reikiLink: '点击我',
+      footer: '以爱与尊重陪伴你的道路 ❤️',
+      footerSign: '达丽娅·阿姆里塔',
+      themeLight: '☀️ 浅色',
+      themeDark: '🌙 深色',
+      ariaTheme: '显示主题',
+      ariaLang: '网站语言',
+    },
+    ja: {
+      metaDescription: 'ダリア・アムリタ 光のガイド、コスモエネルギー、レイキ実践者。イスラエル。',
+      pageTitle: 'ダリア・アムリタ',
+      avatarAlt: '写真 ダリア・アムリタ',
+      tagline: '光のガイド • コスモエネルギー • レイキ実践者',
+      intro1: '意識の変容期を迎え、この道でのガイドを探していますか？',
+      intro2: '自分自身との調和を取り戻し、制限的な信念から解放され、人生を新しいレベルへ導きたいですか？',
+      intro3: '内なるバランスを回復し、エネルギーで満たされ、より多くの落ち着き・自信・ひらめきを感じたいですか？',
+      intro4: 'それなら、この道を喜んでご一緒します。',
+      practicesTitle: '実践と方向性',
+      practice1: 'コスモエネルギー',
+      practice2: 'レイキエネルギーヒーリング',
+      practice3: '光のエネルギーワーク',
+      practice4: 'エネルギー診断と浄化',
+      practice5: 'チャネリング',
+      practice6: '天然みつろうのキャンドルを作っています',
+      audienceTitle: 'どのような方をサポートできますか？',
+      audience1: '女性と女の子',
+      audience2: '子ども',
+      audience3: 'ゴールデンエイジの方',
+      audience4: '困難な人生状況や変化の時期を迎えている方',
+      audience5: '手術前の準備期と手術後の回復期',
+      audience6: '妊娠中および産後の時期',
+      audience7: '内なる調和・穏やかさ・リソースに満ちた状態を求める方',
+      aboutTitle: '私について',
+      aboutP1: '私の名前はダリア・アムリタです。',
+      aboutRole1: 'レイキ実践者、コスモエネルギー実践者',
+      aboutRole2: '光のガイド',
+      aboutRole3: 'ドゥーラ',
+      aboutP2: '医療システム管理学の学士号（B.A.）を保有しています。',
+      aboutP3: '私のワークでは、エネルギープラクティス、直感的な感受性、そして内面的な変化の道にいる人へのやさしいサポートを組み合わせています',
+      aboutP4: 'チャネリングによるヒーリング',
+      aboutHeal1: 'メッセージの受信',
+      aboutHeal2: '感情面・エネルギー面のブロックの特定',
+      aboutHeal3: '癒し・成長・発展のプロセスにおける個人的なサポート',
+      aboutP5: '一人ひとりがユニークであるため、ワークはあなたの希望、状態、人生状況に合わせて個別に組み立てます',
+      aboutP6: '私の目標は、あなたが内なる可能性を開き、自分とのつながりを取り戻し、人生により多くの調和・エネルギー・気づきを見いだせるよう支えることです',
+      contactBtn: '相談を予約する',
+      contactSocialLead: '連絡先：',
+      socialWhatsApp: '💬 ワッツアップ',
+      socialYoutube: '▶️ ユーチューブ',
+      socialEmail: '📧 ジメール',
+      socialFacebook: '📘 フェイスブック',
+      reikiTitle: 'レイキについて',
+      reikiText: 'レイキが何か分からない方へ、',
+      reikiLink: 'クリックしてね',
+      footer: 'あなたの道に愛と敬意を込めて ❤️',
+      footerSign: 'ダリア・アムリタ',
+      themeLight: '☀️ ライト',
+      themeDark: '🌙 ダーク',
+      ariaTheme: '表示テーマ',
+      ariaLang: 'サイトの言語',
+    },
+    ko: {
+      metaDescription: '다리아 암리타 빛의 안내자, 코스모에너제틱, 레이키 실천가 이스라엘',
+      pageTitle: '다리아 암리타',
+      avatarAlt: '사진 다리아 암리타',
+      tagline: '빛의 안내자 • 코스모에너제틱 • 레이키 실천가',
+      intro1: '의식의 전환기를 지나며 이 길에서 안내자를 찾고 계신가요?',
+      intro2: '자신과의 조화를 찾고 제한적인 믿음에서 벗어나 삶을 새로운 수준으로 이끌고 싶으신가요?',
+      intro3: '내면의 균형을 회복하고 에너지로 채워지며 더 많은 평온함, 자신감, 영감을 느끼고 싶으신가요?',
+      intro4: '그렇다면 이 길에서 기꺼이 함께하겠습니다',
+      practicesTitle: '실천과 방향',
+      practice1: '코스모에너제틱',
+      practice2: '레이키 에너지 치유',
+      practice3: '빛의 에너지 작업',
+      practice4: '에너지 진단 및 정화',
+      practice5: '채널링',
+      practice6: '천연 밀랍으로 만든 양초를 제작합니다',
+      audienceTitle: '누구를 도와드릴 수 있나요?',
+      audience1: '여성과 소녀',
+      audience2: '어린이',
+      audience3: '황금기의 분들',
+      audience4: '어려운 삶의 상황과 변화의 시기를 지나고 있는 분들',
+      audience5: '수술 전 준비 및 수술 후 회복 기간',
+      audience6: '임신 중과 산후 기간',
+      audience7: '내적 조화, 평온, 자원감 있는 상태를 찾는 분들',
+      aboutTitle: '소개',
+      aboutP1: '제 이름은 다리아 암리타입니다',
+      aboutRole1: '레이키 실천가, 코스모에너제틱 실천가',
+      aboutRole2: '빛의 안내자',
+      aboutRole3: '둘라',
+      aboutP2: '보건의료 시스템 관리 학사 학위(B.A.)를 보유하고 있습니다',
+      aboutP3: '저는 에너지 실천, 직관적 감지, 그리고 내적 변화의 길에 있는 사람을 위한 부드러운 지지를 결합해 작업합니다',
+      aboutP4: '채널링을 통한 치유',
+      aboutHeal1: '메시지 수신',
+      aboutHeal2: '감정적·에너지적 차단 요소 파악',
+      aboutHeal3: '치유, 성장, 발전 과정에서의 개인적 동행',
+      aboutP5: '모든 사람은 고유하기에, 작업은 당신의 요청, 상태, 삶의 상황에 맞추어 개별적으로 구성됩니다',
+      aboutP6: '저의 목표는 당신이 내면의 잠재력을 열고 자신과의 연결을 회복하며 삶에서 더 많은 조화, 에너지, 자각을 찾도록 돕는 것입니다',
+      contactBtn: '상담 예약하기',
+      contactSocialLead: '제 연락처:',
+      socialWhatsApp: '💬 왓츠앱',
+      socialYoutube: '▶️ 유튜브',
+      socialEmail: '📧 지메일',
+      socialFacebook: '📘 페이스북',
+      reikiTitle: '레이키 안내',
+      reikiText: '레이키가 무엇인지 모르신다면, ',
+      reikiLink: '나를 눌러주세요',
+      footer: '당신의 길에 사랑과 존중을 담아 ❤️',
+      footerSign: '다리아 암리타',
+      themeLight: '☀️ 라이트',
+      themeDark: '🌙 다크',
+      ariaTheme: '표시 테마',
+      ariaLang: '사이트 언어',
+    },
+  };
+
+  const RTL_LANGS = ['ar', 'he'];
+  const DEFAULT_LANG = 'en';
+
+  const THEME_KEY = 'theme';
+  const LANG_KEY = 'lang';
+  const root = document.documentElement;
+  const themeButtons = document.querySelectorAll('[data-theme-set]');
+  const langSelect = document.getElementById('lang-select');
+  const themeSwitch = document.querySelector('.theme-switch');
+  const metaDescription = document.querySelector('meta[name="description"]');
+
+  function applyLanguage(lang) {
+    const strings = TRANSLATIONS[lang] || TRANSLATIONS[DEFAULT_LANG];
+    const activeLang = TRANSLATIONS[lang] ? lang : DEFAULT_LANG;
+
+    root.lang = activeLang;
+    root.dir = RTL_LANGS.indexOf(activeLang) !== -1 ? 'rtl' : 'ltr';
+
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      const key = el.getAttribute('data-i18n');
+      if (strings[key]) {
+        el.textContent = strings[key];
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      const key = el.getAttribute('data-i18n-alt');
+      if (strings[key]) {
+        el.alt = strings[key];
+      }
+    });
+
+    if (metaDescription && strings.metaDescription) {
+      metaDescription.setAttribute('content', strings.metaDescription);
+    }
+
+    if (strings.pageTitle) {
+      document.title = strings.pageTitle;
+    }
+
+    if (themeSwitch && strings.ariaTheme) {
+      themeSwitch.setAttribute('aria-label', strings.ariaTheme);
+    }
+
+    if (langSelect && strings.ariaLang) {
+      langSelect.setAttribute('aria-label', strings.ariaLang);
+    }
+
+    if (langSelect) {
+      langSelect.value = activeLang;
+    }
+
+    localStorage.setItem(LANG_KEY, activeLang);
+  }
+
+  if (langSelect) {
+    langSelect.addEventListener('change', function () {
+      applyLanguage(langSelect.value);
+    });
+
+    const savedLang = localStorage.getItem(LANG_KEY);
+    if (savedLang && TRANSLATIONS[savedLang]) {
+      applyLanguage(savedLang);
+    } else {
+      applyLanguage(DEFAULT_LANG);
+    }
+  }
+
+  function setTheme(theme) {
+    const isDark = theme === 'dark';
+
+    if (isDark) {
+      root.setAttribute('data-theme', 'dark');
+    } else {
+      root.removeAttribute('data-theme');
+    }
+
+    localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+
+    themeButtons.forEach(function (btn) {
+      const active = btn.getAttribute('data-theme-set') === theme;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+
+  themeButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setTheme(btn.getAttribute('data-theme-set'));
+    });
+  });
+
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  if (savedTheme === 'dark' || savedTheme === 'light') {
+    setTheme(savedTheme);
+  }
+
+  const contactButtons = document.querySelectorAll('[data-scroll-to="contact"]');
+  const contactSection = document.getElementById('contact');
+
+  if (contactButtons.length && contactSection) {
+    contactButtons.forEach(function (contactButton) {
+      contactButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        contactSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+        contactSection.setAttribute('tabindex', '-1');
+        contactSection.focus({ preventScroll: true });
+      });
+    });
+  }
+})();
+
+  </script>
 </body>
 </html>
